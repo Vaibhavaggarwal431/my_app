@@ -20,7 +20,7 @@ class SignInScreen extends StatelessWidget {
         child: SafeArea(
           child: SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24.0),
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
               child: Column(
                 children: [
                   // Top Section with Logo and Buddha Images
@@ -28,26 +28,27 @@ class SignInScreen extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Image.asset('assets/images/buddha_left.png', height: 60),
-                      Container(
-                        padding: const EdgeInsets.all(8),
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.blue),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: Image.asset(
-                          'assets/images/logo.png',
-                          height: 40,
-                          width: 120,
-                          fit: BoxFit.contain,
-                        ),
+                      Image.asset('assets/images/pngegg (1) 1.png', height: 60,),
+                      Image.asset('assets/images/Layer_1.png', height: 60,fit: BoxFit.contain,),
+                      Image.asset(
+                        'assets/images/pngegg (1) 1.png',
+                        height: 60,
+                        fit: BoxFit.contain,
                       ),
                     ],
                   ),
 
                   // Welcome Text Section
                   const SizedBox(height: 48),
-                  const Text(
+                Card(
+                
+                  elevation: 6, // Adjust elevation for shadow effect
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12), // Rounded corners
+                    ),
+                    child: Column(children: [
+                      const SizedBox(height: 30),
+                        const Text(
                     'Welcome back',
                     style: TextStyle(
                       fontSize: 24,
@@ -120,6 +121,7 @@ class SignInScreen extends StatelessWidget {
                       child: const Text(
                         'Login',
                         style: TextStyle(
+                          color: Colors.white,
                           fontSize: 16,
                           fontWeight: FontWeight.w500,
                         ),
@@ -153,12 +155,15 @@ class SignInScreen extends StatelessWidget {
                   ),
 
                   // Bottom Buddha Image
-                  const SizedBox(height: 48),
+                  const SizedBox(height: 78),
                   Image.asset(
-                    'assets/images/buddha_outline.png',
-                    height: 120,
+                    'assets/buddha_outline.png',
+                    height: 200,
+                    fit: BoxFit.fill,
                     color: Colors.red[300],
                   ),
+                    ],),
+                )
                 ],
               ),
             ),

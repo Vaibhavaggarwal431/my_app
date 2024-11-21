@@ -71,7 +71,7 @@ class HomeContent extends StatelessWidget {
                 enlargeCenterPage: true,
               ),
               items: [
-                'assets/Mask group.png',
+                'assets/images/image (2).png',
                 'assets/splashscreen.png',
               ].map((banner) {
                 return Container(
