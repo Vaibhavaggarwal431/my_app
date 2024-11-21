@@ -1,4 +1,7 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:my_app/constants.dart';
 
 class FamilyMembersDetails extends StatelessWidget {
@@ -20,12 +23,23 @@ class FamilyMembersDetails extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Profile Section
             Container(
-              color: Colors.yellow,
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    Color(0xFFFFFFFF),
+                    Color(0xFFFFF5E4),
+                  ],
+                ),
+              ),
               padding: const EdgeInsets.all(16),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
@@ -34,80 +48,63 @@ class FamilyMembersDetails extends StatelessWidget {
                       const CircleAvatar(
                         radius: 35,
                         backgroundImage:
-                            AssetImage('assets/images/profile.jpg'),
+                            AssetImage('assets/images/Layer_1.png'),
                       ),
-                      const SizedBox(width: 16),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text(
-                              'Rahul Jain (Son)',
-                              style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            const SizedBox(height: 8),
-                            Row(
-                              children: [
-                                const Icon(Icons.phone,
-                                    size: 16, color: Colors.green),
-                                const SizedBox(width: 8),
-                                Text(
-                                  '+91 8947X XXXXX',
-                                  style: TextStyle(
-                                    color: Colors.grey[600],
-                                    fontSize: 14,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(height: 4),
-                            Row(
-                              children: [
-                                const Icon(Icons.location_on,
-                                    size: 16, color: Colors.red),
-                                const SizedBox(width: 8),
-                                Text(
-                                  'Jaipur, Rajasthan, India',
-                                  style: TextStyle(
-                                    color: Colors.grey[600],
-                                    fontSize: 14,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
+                      const Spacer(),
+                      Image.asset(
+                        "assets/images/Layer_1.png",
+                        height: 60,
+                        width: 100,
+                        fit: BoxFit.fill,
+                      )
                     ],
                   ),
 
                   const SizedBox(height: 24),
-
-                  // Status Row
-                  Row(
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Expanded(
-                        child: _buildStatusItem(
-                          icon: Icons.favorite,
-                          title: 'Marital Status',
-                          value: 'Single',
-                          color: Colors.amber,
+                      const Text(
+                        'Rahul Jain (Son)',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
-                      const SizedBox(width: 16),
-                      Expanded(
-                        child: _buildStatusItem(
-                          icon: Icons.calendar_today,
-                          title: 'Date Of Birth',
-                          value: '12-Nov-2024',
-                          color: Colors.blue,
-                        ),
+                      const SizedBox(height: 8),
+                      Row(
+                        children: [
+                          const Icon(Icons.phone,
+                              size: 16, color: Colors.green),
+                          const SizedBox(width: 8),
+                          Text(
+                            '+91 8947X XXXXX',
+                            style: TextStyle(
+                              color: Colors.grey[600],
+                              fontSize: 14,
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 4),
+                      Row(
+                        children: [
+                          const Icon(Icons.location_on,
+                              size: 16, color: Colors.red),
+                          const SizedBox(width: 8),
+                          Text(
+                            'Jaipur, Rajasthan, India',
+                            style: TextStyle(
+                              color: Colors.grey[600],
+                              fontSize: 14,
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
+
+                  // Status Row
                 ],
               ),
             ),
@@ -119,29 +116,65 @@ class FamilyMembersDetails extends StatelessWidget {
               color: Colors.white,
               child: Column(
                 children: [
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20, right: 20),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          'Education & Professional Details',
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                            color: Color(0xFF8B4513),
+                        Expanded(
+                          child: _buildStatusItem(
+                            image: "assets/wedding.png",
+                            title: 'Marital Status',
+                            value: 'Single',
+                            color: Colors.amber,
                           ),
                         ),
-                        Icon(Icons.edit, color: Colors.blue, size: 20),
+                        const SizedBox(width: 16),
+                        Expanded(
+                          child: _buildStatusItem(
+                            image: "assets/caleneder.png",
+                            title: 'Date Of Birth',
+                            value: '12-Nov-2024',
+                            color: Colors.blue,
+                          ),
+                        ),
                       ],
                     ),
                   ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    decoration: const BoxDecoration(color: Color(0xffddbfac)),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 12),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const Text(
+                            'Education & Professional Details',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: kPrimaryColor,
+                            ),
+                          ),
+                          Image.asset("assets/certificate.png")
+                        ],
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
                   _buildDetailItem(
+                    image: "assets/degree.png",
                     title: 'Education',
                     value: 'BCA',
                   ),
                   const Divider(height: 1),
                   _buildDetailItem(
+                    image: "assets/degree.png",
                     title: 'Professional',
                     value: 'BCA',
                   ),
@@ -155,69 +188,105 @@ class FamilyMembersDetails extends StatelessWidget {
   }
 
   Widget _buildStatusItem({
-    required IconData icon,
+    required String image,
     required String title,
     required String value,
     required Color color,
   }) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Container(
-          padding: const EdgeInsets.all(8),
-          decoration: BoxDecoration(
-            color: color.withOpacity(0.1),
-            borderRadius: BorderRadius.circular(8),
+    return Container(
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          border: Border.all(color: Colors.grey, width: 1)),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Image.asset(
+                image,
+                height: 60,
+                width: 60,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    title,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      color: Color.fromARGB(255, 20, 18, 18),
+                    ),
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    value,
+                    style: const TextStyle(
+                        fontSize: 14,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w600),
+                  ),
+                ],
+              ),
+            ],
           ),
-          child: Icon(icon, color: color, size: 20),
-        ),
-        const SizedBox(height: 8),
-        Text(
-          title,
-          style: const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-            color: Color(0xFF8B4513),
-          ),
-        ),
-        const SizedBox(height: 8),
-        Text(
-          value,
-          style: TextStyle(
-            fontSize: 14,
-            color: Colors.grey[600],
-          ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 
   Widget _buildDetailItem({
+    required String image,
     required String title,
     required String value,
   }) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            title,
-            style: const TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-              color: Color(0xFF8B4513),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(2.0),
+              child: Image.asset(
+                image,
+                height: 60,
+                fit: BoxFit.cover,
+              ),
             ),
-          ),
-          Text(
-            value,
-            style: TextStyle(
-              fontSize: 14,
-              color: Colors.grey[600],
+            const SizedBox(
+              width: 10,
             ),
-          ),
-        ],
-      ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFF8B4513),
+                  ),
+                ),
+                Text(
+                  value,
+                  style: const TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black,
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ],
     );
   }
 }

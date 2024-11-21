@@ -29,14 +29,38 @@ class FamilyDetails2Screen extends StatelessWidget {
                       builder: (context) => FamilyMembersScreen()));
                 },
                 child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Image.asset("assa"),
-                    const Text(
-                      'Total members added',
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
+                    Image.asset(
+                      "assets/addmember.png",
+                      height: 60,
+                      fit: BoxFit.cover,
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.only(left: 8),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Total members added',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w400,
+                              color: Colors.black,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 7,
+                          ),
+                          Text(
+                            '3',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: kPrimaryColor,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                     const Spacer(),
@@ -48,17 +72,11 @@ class FamilyDetails2Screen extends StatelessWidget {
                   ],
                 ),
               ),
-              const Text(
-                '3',
-                style: TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
-              ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  const SizedBox(height: 10),
+
                   // Profile Icon
                   const Text(
                     'Add members Details',
@@ -68,9 +86,8 @@ class FamilyDetails2Screen extends StatelessWidget {
                       color: kPrimaryColor,
                     ),
                   ),
-                  const SizedBox(height: 12),
 
-                  const SizedBox(height: 24),
+                  const SizedBox(height: 10),
 
                   // Form Fields
                   _buildTextField(

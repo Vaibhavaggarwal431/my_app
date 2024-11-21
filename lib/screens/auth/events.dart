@@ -6,7 +6,7 @@ class EventsScreen extends StatelessWidget {
   final List<Map<String, dynamic>> events = [
     {
       'title': 'Deepawali Or Diwali Is An Indian Festival',
-      'image': 'assets/images/diwali1.jpg',
+      'image': 'assets/temple.png',
       'date': '12-12-2024',
       'location': 'Jaipur, Rajasthan',
       'organizer': 'Rahul Jain',
@@ -14,7 +14,7 @@ class EventsScreen extends StatelessWidget {
     },
     {
       'title': 'Deepawali Or Diwali Is An Indian Festival',
-      'image': 'assets/images/diwali2.jpg',
+      'image': 'assets/temple.png',
       'date': '12-12-2024',
       'location': '',
       'organizer': '',
@@ -22,7 +22,7 @@ class EventsScreen extends StatelessWidget {
     },
     {
       'title': 'Deepawali Or Diwali Is An Indian Festival',
-      'image': 'assets/images/temple.jpg',
+      'image': 'assets/temple.png',
       'date': '12-12-2024',
       'location': 'Jaipur, Rajasthan',
       'organizer': 'Rahul Jain',
@@ -30,7 +30,7 @@ class EventsScreen extends StatelessWidget {
     },
     {
       'title': 'Deepawali Or Diwali Is An Indian Festival',
-      'image': 'assets/images/statues.jpg',
+      'image': 'assets/temple.png',
       'date': '12-12-2024',
       'location': '',
       'organizer': '',
@@ -109,9 +109,9 @@ class EventsScreen extends StatelessWidget {
                   itemBuilder: (context, index) {
                     final event = events[index];
                     return InkWell(
-                      onTap: (){
-  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const EventDetailsScreen()));
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const EventDetailsScreen()));
                       },
                       child: Card(
                         margin: const EdgeInsets.only(bottom: 16),
@@ -119,7 +119,6 @@ class EventsScreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             // Event Image
                             ClipRRect(
@@ -128,23 +127,27 @@ class EventsScreen extends StatelessWidget {
                               ),
                               child: Image.asset(
                                 event['image'],
-                                width: double.infinity,
-                                height: 200,
+                                width: 200,
+                                height: 100,
                                 fit: BoxFit.cover,
                               ),
                             ),
-                      
+
                             Padding(
                               padding: const EdgeInsets.all(12.0),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
-                                    event['title'],
-                                    style: const TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.bold,
-                                        color: kPrimaryColor),
+                                  SizedBox(
+                                    width: 200,
+                                    child: Text(
+                                      event['title'],
+                                      maxLines: null,
+                                      style: const TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w600,
+                                          color: kPrimaryColor),
+                                    ),
                                   ),
                                   Row(
                                     children: [
@@ -208,7 +211,8 @@ class EventsScreen extends StatelessWidget {
                                 event['title'],
                                 style: const TextStyle(
                                   fontSize: 16,
-                                  fontWeight: FontWeight.bold,
+                                  fontWeight: FontWeight.w600,
+                                  color: kPrimaryColor,
                                 ),
                               ),
                               if (event['location'].isNotEmpty) ...[

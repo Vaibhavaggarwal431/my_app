@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_app/constants.dart';
-import 'package:my_app/screens/auth/familydetails.dart';
 import 'package:my_app/screens/auth/familymembers_details.dart';
 
 class FamilyMembersScreen extends StatelessWidget {
