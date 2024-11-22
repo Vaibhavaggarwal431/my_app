@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/screens/auth/account.dart';
 import 'package:my_app/screens/auth/events.dart';
 import 'package:my_app/screens/auth/homescreen.dart';
 
@@ -17,7 +18,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
     const Center(child: Text('Search')),
     const Center(child: Text('Add')),
     EventsScreen(),
-    const Center(child: Text('Account')),
+    const ProfileScreen(),
   ];
 
   @override

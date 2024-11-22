@@ -14,12 +14,12 @@ class EventDetailsScreen extends StatelessWidget {
         backgroundColor: Colors.red[50],
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          icon: const Icon(Icons.arrow_back, color: kPrimaryColor),
           onPressed: () => Navigator.pop(context),
         ),
         title: const Text(
           'Events Details',
-          style: TextStyle(color: Colors.black, fontSize: 16),
+          style: TextStyle(color: kPrimaryColor, fontSize: 16),
         ),
       ),
       body: SingleChildScrollView(
@@ -30,7 +30,7 @@ class EventDetailsScreen extends StatelessWidget {
             Container(
               width: double.infinity,
               height: 200,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('image'),
                   fit: BoxFit.cover,
@@ -44,12 +44,12 @@ class EventDetailsScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     'title',
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: Colors.black,
+                      color: kPrimaryColor,
                     ),
                   ),
                   const SizedBox(height: 12),
@@ -116,7 +116,7 @@ class EventDetailsScreen extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
-                      color: Colors.black,
+                      color: kPrimaryColor,
                     ),
                   ),
                   const SizedBox(height: 12),
@@ -141,7 +141,7 @@ class EventDetailsScreen extends StatelessWidget {
                   top: BorderSide(color: Colors.grey[200]!),
                 ),
               ),
-              child: Row(
+              child: const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Column(
@@ -150,39 +150,33 @@ class EventDetailsScreen extends StatelessWidget {
                       Text(
                         'Contact Person',
                         style: TextStyle(
-                          color: Colors.grey[600],
-                          fontSize: 14,
-                        ),
+                            color: kPrimaryColor,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600),
                       ),
-                      const SizedBox(height: 4),
-                      const Text(
+                      SizedBox(height: 4),
+                    ],
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Text(
+                        'Bharat Lal',
+                        style: TextStyle(
+                            color: kPrimaryColor,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600),
+                      ),
+                      Text(
                         '+91 XXXXX XXXXX',
                         style: TextStyle(
-                          color: Colors.red,
+                          color: kPrimaryColor,
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                     ],
-                  ),
-                  ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: kSecondaryColor,
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 24, vertical: 12),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                    ),
-                    child: const Text(
-                      'Book a Lot',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                      ),
-                    ),
-                  ),
+                  )
                 ],
               ),
             ),

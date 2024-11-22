@@ -16,7 +16,6 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-
         // This is the theme of your application.
         //
         // TRY THIS: Try running your application with "flutter run". You'll see
@@ -85,8 +84,10 @@ class _NavigationState extends State<NavigationScreen> {
         backgroundColor: kBackgroundColor,
         body: Center(
           child: Image.asset(
+            width: double.infinity,
             // width: screenWidth * 0.3,
             'assets/splashscreen.png',
+            fit: BoxFit.fill,
           ),
         ));
   }

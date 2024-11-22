@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:my_app/constants.dart';
+import 'package:my_app/screens/auth/notification.dart';
 
 // Extract home content to separate widget
 class HomeContent extends StatelessWidget {
@@ -53,8 +54,11 @@ class HomeContent extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.notifications_outlined, color: Colors.black),
-            onPressed: () {},
+            icon: const Icon(Icons.notifications_outlined, color: kPrimaryColor),
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const NotificationScreen()));
+            },
           ),
         ],
       ),

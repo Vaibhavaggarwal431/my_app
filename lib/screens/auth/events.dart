@@ -66,8 +66,12 @@ class EventsScreen extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.notifications_outlined, color: Colors.black),
-            onPressed: () {},
+            icon:
+                const Icon(Icons.notifications_outlined, color: kPrimaryColor),
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const EventDetailsScreen()));
+            },
           ),
         ],
       ),
@@ -181,49 +185,70 @@ class EventsScreen extends StatelessWidget {
                 itemCount: events.length,
                 itemBuilder: (context, index) {
                   final event = events[index];
-                  return Card(
-                    margin: const EdgeInsets.only(bottom: 16),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        // Event Image
-                        ClipRRect(
-                          borderRadius: const BorderRadius.vertical(
-                            top: Radius.circular(12),
+                  return InkWell(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const EventDetailsScreen()));
+                    },
+                    child: Card(
+                      margin: const EdgeInsets.only(bottom: 16),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          // Event Image
+                          ClipRRect(
+                            borderRadius: const BorderRadius.vertical(
+                              top: Radius.circular(12),
+                            ),
+                            child: Image.asset(
+                              event['image'],
+                              width: double.infinity,
+                              height: 200,
+                              fit: BoxFit.cover,
+                            ),
                           ),
-                          child: Image.asset(
-                            event['image'],
-                            width: double.infinity,
-                            height: 200,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
 
-                        Padding(
-                          padding: const EdgeInsets.all(12.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                event['title'],
-                                style: const TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w600,
-                                  color: kPrimaryColor,
+                          Padding(
+                            padding: const EdgeInsets.all(12.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  event['title'],
+                                  style: const TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w600,
+                                    color: kPrimaryColor,
+                                  ),
                                 ),
-                              ),
-                              if (event['location'].isNotEmpty) ...[
+                                if (event['location'].isNotEmpty) ...[
+                                  const SizedBox(height: 8),
+                                  Row(
+                                    children: [
+                                      const Icon(Icons.location_on,
+                                          size: 16, color: Colors.grey),
+                                      const SizedBox(width: 4),
+                                      Text(
+                                        event['location'],
+                                        style: TextStyle(
+                                          color: Colors.grey[600],
+                                          fontSize: 14,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
                                 const SizedBox(height: 8),
                                 Row(
                                   children: [
-                                    const Icon(Icons.location_on,
+                                    const Icon(Icons.calendar_today,
                                         size: 16, color: Colors.grey),
                                     const SizedBox(width: 4),
                                     Text(
-                                      event['location'],
+                                      event['date'],
                                       style: TextStyle(
                                         color: Colors.grey[600],
                                         fontSize: 14,
@@ -231,47 +256,32 @@ class EventsScreen extends StatelessWidget {
                                     ),
                                   ],
                                 ),
-                              ],
-                              const SizedBox(height: 8),
-                              Row(
-                                children: [
-                                  const Icon(Icons.calendar_today,
-                                      size: 16, color: Colors.grey),
-                                  const SizedBox(width: 4),
-                                  Text(
-                                    event['date'],
-                                    style: TextStyle(
-                                      color: Colors.grey[600],
-                                      fontSize: 14,
-                                    ),
+                                if (event['organizer'].isNotEmpty) ...[
+                                  const SizedBox(height: 8),
+                                  Row(
+                                    children: [
+                                      CircleAvatar(
+                                        radius: 10,
+                                        backgroundColor: Colors.grey[300],
+                                        child: const Icon(Icons.person,
+                                            size: 12, color: Colors.grey),
+                                      ),
+                                      const SizedBox(width: 4),
+                                      Text(
+                                        event['organizer'],
+                                        style: TextStyle(
+                                          color: Colors.grey[600],
+                                          fontSize: 14,
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ],
-                              ),
-                              if (event['organizer'].isNotEmpty) ...[
-                                const SizedBox(height: 8),
-                                Row(
-                                  children: [
-                                    CircleAvatar(
-                                      radius: 10,
-                                      backgroundColor: Colors.grey[300],
-                                      child: const Icon(Icons.person,
-                                          size: 12, color: Colors.grey),
-                                    ),
-                                    const SizedBox(width: 4),
-                                    Text(
-                                      event['organizer'],
-                                      style: TextStyle(
-                                        color: Colors.grey[600],
-                                        fontSize: 14,
-                                      ),
-                                    ),
-                                  ],
-                                ),
                               ],
-                            ],
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   );
                 },
