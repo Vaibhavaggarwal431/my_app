@@ -9,15 +9,25 @@ class FamilyMembersScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey[50],
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: kSecondaryColor,
-        elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: kPrimaryColor),
-          onPressed: () => Navigator.pop(context),
-        ),
-        title: const Text(
-          'Family Members',
-          style: TextStyle(color: kPrimaryColor),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            IconButton(
+              icon: const Icon(Icons.arrow_back_ios),
+              onPressed: () => Navigator.pop(context),
+              color: kPrimaryColor,
+            ),
+            const SizedBox(width: 8),
+            const Text(
+              'Family Members',
+              style: TextStyle(
+                  color: kPrimaryColor,
+                  fontWeight: FontWeight.w500,
+                  fontFamily: "golo"),
+            ),
+          ],
         ),
       ),
       body: ListView(
@@ -82,6 +92,7 @@ class FamilyMembersScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    // Updated name display
                     Text(
                       name,
                       style: const TextStyle(
@@ -100,21 +111,15 @@ class FamilyMembersScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              Container(
-                padding: const EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                  color: iconColor.withOpacity(0.1),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: Row(
-                  children: [
-                    Icon(
-                      icon,
-                      color: iconColor,
-                      size: 20,
+              Column(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      color: iconColor.withOpacity(0.1),
+                      borderRadius: BorderRadius.circular(8),
                     ),
-                    const SizedBox(width: 4),
-                    Text(
+                    child: Text(
                       relation,
                       style: TextStyle(
                         color: iconColor,
@@ -122,8 +127,14 @@ class FamilyMembersScreen extends StatelessWidget {
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                  const SizedBox(height: 4),
+                  Icon(
+                    icon,
+                    color: iconColor,
+                    size: 20,
+                  ),
+                ],
               ),
             ],
           ),

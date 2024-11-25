@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_app/bottomnaviagtionbar.dart';
 import 'package:my_app/constants.dart';
-import 'package:my_app/screens/auth/homescreen.dart';
 
 class OTPScreen extends StatefulWidget {
   @override
@@ -51,7 +50,8 @@ class _OTPScreenState extends State<OTPScreen> {
             children: [
               // Top Section with Buddha Images and Logo
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 8),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -70,9 +70,10 @@ class _OTPScreenState extends State<OTPScreen> {
                   padding: const EdgeInsets.symmetric(horizontal: 2),
                   child: Card(
                     elevation: 10, // Adjust elevation for shadow effect
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12), // Rounded corners
-                      ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius:
+                          BorderRadius.circular(12), // Rounded corners
+                    ),
                     child: Padding(
                       padding: const EdgeInsets.all(24.0),
                       child: Column(
@@ -112,7 +113,7 @@ class _OTPScreenState extends State<OTPScreen> {
                             ],
                           ),
                           const SizedBox(height: 32),
-                    
+
                           // OTP Input Fields
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -136,8 +137,8 @@ class _OTPScreenState extends State<OTPScreen> {
                                     counterText: "",
                                     border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(8),
-                                      borderSide:
-                                          BorderSide(color: Colors.grey.shade300),
+                                      borderSide: BorderSide(
+                                          color: Colors.grey.shade300),
                                     ),
                                     focusedBorder: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(8),
@@ -153,7 +154,7 @@ class _OTPScreenState extends State<OTPScreen> {
                               ),
                             ),
                           ),
-                    
+
                           const SizedBox(height: 16),
                           // Timer
                           Text(
@@ -163,7 +164,7 @@ class _OTPScreenState extends State<OTPScreen> {
                               fontSize: 14,
                             ),
                           ),
-                    
+
                           const SizedBox(height: 32),
                           // Submit Button
                           SizedBox(
@@ -176,18 +177,20 @@ class _OTPScreenState extends State<OTPScreen> {
                               },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: kPrimaryColor,
-                                padding: const EdgeInsets.symmetric(vertical: 16),
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 16),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(8),
                                 ),
                               ),
                               child: const Text(
                                 'Submit',
-                                style: TextStyle(fontSize: 16, color: Colors.white),
+                                style: TextStyle(
+                                    fontSize: 16, color: Colors.white),
                               ),
                             ),
                           ),
-                    
+
                           const Spacer(),
                           // Bottom Buddha Image
                           Image.asset(

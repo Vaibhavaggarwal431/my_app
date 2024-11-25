@@ -9,22 +9,29 @@ class SignupScreen extends StatefulWidget {
 
 class SignupScreenState extends State<SignupScreen> {
   String selectedGender = 'Female';
+  String selectedAddressType = 'Permanent Address';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: kSecondaryColor,
-        elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: kPrimaryColor),
-          onPressed: () => Navigator.pop(context),
-        ),
-        title: const Text('Create Account',
-            style:
-                TextStyle(color: kPrimaryColor, fontWeight: FontWeight.w500)),
-      ),
+          automaticallyImplyLeading: false,
+          backgroundColor: kSecondaryColor,
+          elevation: 0,
+          title: Row(
+            children: [
+              IconButton(
+                icon: const Icon(Icons.arrow_back_ios, color: kPrimaryColor),
+                onPressed: () => Navigator.pop(context),
+              ),
+              const Text('Create Account',
+                  style: TextStyle(
+                      color: kPrimaryColor,
+                      fontWeight: FontWeight.w500,
+                      fontFamily: "golo")),
+            ],
+          )),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -34,6 +41,7 @@ class SignupScreenState extends State<SignupScreen> {
               const Text('Basic Details',
                   style: TextStyle(
                       fontSize: 16,
+                      fontFamily: "golo",
                       fontWeight: FontWeight.bold,
                       color: kPrimaryColor)),
               const SizedBox(height: 16),
@@ -94,8 +102,15 @@ class SignupScreenState extends State<SignupScreen> {
                       color: kPrimaryColor)),
               const SizedBox(height: 16),
               _buildDropdown('Select Country'),
-              _buildDropdown('Select State'),
-              _buildDropdown('Select City'),
+              Row(
+                children: [
+                  Expanded(child: _buildDropdown('Select State')),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  Expanded(child: _buildDropdown('Select City')),
+                ],
+              ),
               _buildTextField('Address', 'Enter Address', Icons.location_on),
               _buildTextField('Pin Code', 'Enter Pin Code', Icons.pin),
               const Text(
@@ -114,12 +129,14 @@ class SignupScreenState extends State<SignupScreen> {
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: kPrimaryColor,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12)),
                     padding: const EdgeInsets.symmetric(
                         horizontal: 50, vertical: 15),
                   ),
                   child: const Text(
                     'Submit',
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: Colors.white, fontFamily: "golo"),
                   ),
                 ),
               ),
@@ -162,7 +179,9 @@ class SignupScreenState extends State<SignupScreen> {
         children: [
           Text(label,
               style: const TextStyle(
-                  color: kPrimaryColor, fontWeight: FontWeight.w500)),
+                  fontFamily: "golo",
+                  color: kPrimaryColor,
+                  fontWeight: FontWeight.w500)),
           TextField(
             decoration: InputDecoration(
                 suffixIcon: Icon(
@@ -225,10 +244,27 @@ class SignupScreenState extends State<SignupScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Radio(value: 'Male', groupValue: 'gender', onChanged: (value) {}),
+              Radio(
+                value: 'Male',
+                activeColor: kPrimaryColor,
+                groupValue: selectedGender,
+                onChanged: (value) {
+                  setState(() {
+                    selectedGender = value.toString();
+                  });
+                },
+              ),
               const Text('Male'),
               Radio(
-                  value: 'Female', groupValue: 'gender', onChanged: (value) {}),
+                value: 'Female',
+                activeColor: kPrimaryColor,
+                groupValue: selectedGender,
+                onChanged: (value) {
+                  setState(() {
+                    selectedGender = value.toString();
+                  });
+                },
+              ),
               const Text('Female'),
             ],
           ),
@@ -241,10 +277,28 @@ class SignupScreenState extends State<SignupScreen> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Checkbox(value: false, onChanged: (value) {}),
+        Radio(
+          value: 'Permanent Address',
+          activeColor: kPrimaryColor,
+          groupValue: selectedAddressType,
+          onChanged: (value) {
+            setState(() {
+              selectedAddressType = value.toString();
+            });
+          },
+        ),
         const Text('Permanent Address'),
         const SizedBox(width: 20),
-        Checkbox(value: false, onChanged: (value) {}),
+        Radio(
+          value: 'Current Address',
+          activeColor: kPrimaryColor,
+          groupValue: selectedAddressType,
+          onChanged: (value) {
+            setState(() {
+              selectedAddressType = value.toString();
+            });
+          },
+        ),
         const Text('Current Address'),
       ],
     );

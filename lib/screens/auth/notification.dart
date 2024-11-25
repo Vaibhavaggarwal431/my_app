@@ -8,16 +8,26 @@ class NotificationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(
-            Icons.arrow_back,
-            color: kPrimaryColor,
-          ),
-          onPressed: () => Navigator.pop(context),
-        ),
-        title: const Text(
-          'Notification',
-          style: TextStyle(color: kPrimaryColor),
+        backgroundColor: kSecondaryColor,
+        automaticallyImplyLeading: false,
+        title: Row(
+          children: [
+            IconButton(
+              icon: const Icon(
+                Icons.arrow_back_ios,
+                color: kPrimaryColor,
+              ),
+              onPressed: () => Navigator.pop(context),
+            ),
+            const Text(
+              'Notification',
+              style: TextStyle(
+                fontWeight: FontWeight.w500,
+                color: kPrimaryColor,
+                fontFamily: "golo",
+              ),
+            ),
+          ],
         ),
         elevation: 0,
       ),
@@ -45,12 +55,14 @@ class NotificationScreen extends StatelessWidget {
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 16,
+                              fontFamily: "golo",
                               color: kPrimaryColor),
                         ),
                         const Text(
                           'Lorem Ipsum Is A Placeholder',
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
+                              fontFamily: "golo",
                               fontSize: 16,
                               color: kPrimaryColor),
                         ),
@@ -59,6 +71,7 @@ class NotificationScreen extends StatelessWidget {
                           'In Publishing And Graphic Design, Lorem Ipsum Is A Placeholder Text Commonly Used To Demonstrate The Visual Form Of A Document Or A Typeface Without Relying On Meaningful Content. Lorem Ipsum May...',
                           style: TextStyle(
                             color: Colors.grey,
+                            fontFamily: "golo",
                             fontSize: 14,
                           ),
                         ),

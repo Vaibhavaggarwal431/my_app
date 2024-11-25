@@ -12,57 +12,67 @@ class ProfileScreen extends StatelessWidget {
     showModalBottomSheet(
       context: context,
       builder: (BuildContext context) {
-        return Container(
-          constraints: const BoxConstraints(
-            maxHeight: 300,
-            minWidth: double.infinity,
-          ),
-          child: AlertDialog(
-            title: const Text(
-              'your sure You want Logout account?',
-              style: TextStyle(
-                  color: kPrimaryColor,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w500),
-            ),
-            actions: <Widget>[
-              Row(
-                children: [
-                  SizedBox(
-                    width: 120,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        // Handle submit action
-                        Navigator.of(context).pop();
-                      },
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xffdadce3),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8))),
-                      child: const Text('Yes',
-                          style: TextStyle(color: Colors.grey)),
-                    ),
-                  ),
-                  const Spacer(),
-                  SizedBox(
-                    width: 120,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        // Handle submit action
-                        Navigator.of(context).pop();
-                      },
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: kPrimaryColor,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8))),
-                      child: const Text('No',
-                          style: TextStyle(color: Colors.white)),
-                    ),
-                  ),
-                ],
+        return AlertDialog(
+          title: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(
+                width: 200,
+                child: Text(
+                  'your sure You want Logout account?',
+                  maxLines: null,
+                  style: TextStyle(
+                      color: kPrimaryColor,
+                      fontFamily: "golo",
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500),
+                ),
               ),
+              const Spacer(),
+              IconButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  icon: const Icon(Icons.close))
             ],
           ),
+          actions: <Widget>[
+            Row(
+              children: [
+                SizedBox(
+                  width: 120,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      // Handle submit action
+                      Navigator.of(context).pop();
+                    },
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: Color(0xffdadce3),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8))),
+                    child:
+                        const Text('Yes', style: TextStyle(color: Colors.grey)),
+                  ),
+                ),
+                const Spacer(),
+                SizedBox(
+                  width: 120,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      // Handle submit action
+                      Navigator.of(context).pop();
+                    },
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: kPrimaryColor,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8))),
+                    child:
+                        const Text('No', style: TextStyle(color: Colors.white)),
+                  ),
+                ),
+              ],
+            ),
+          ],
         );
       },
     );
@@ -74,16 +84,30 @@ class ProfileScreen extends StatelessWidget {
       builder: (BuildContext context) {
         return Container(
           constraints: const BoxConstraints(
-            maxHeight: 300,
+            maxHeight: 250,
             minWidth: double.infinity,
           ),
           child: AlertDialog(
-            title: const Text(
-              'Are you sure you want to delete your account?',
-              style: TextStyle(
-                  color: kPrimaryColor,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w500),
+            title: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(
+                  width: 200,
+                  child: Text(
+                    'Are you sure you want to delete your account?',
+                    style: TextStyle(
+                        color: kPrimaryColor,
+                        fontFamily: "golo",
+                        fontSize: 20,
+                        fontWeight: FontWeight.w500),
+                  ),
+                ),
+                IconButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    icon: const Icon(Icons.close))
+              ],
             ),
             actions: <Widget>[
               Row(
@@ -135,12 +159,22 @@ class ProfileScreen extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text(
-            'Please select reason to delete account?',
-            style: TextStyle(
-                color: kPrimaryColor,
-                fontSize: 20,
-                fontWeight: FontWeight.w500),
+          title: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(
+                width: 200,
+                child: Text(
+                  'Please select reason to delete account?',
+                  style: TextStyle(
+                      color: kPrimaryColor,
+                      fontSize: 20,
+                      fontFamily: "golo",
+                      fontWeight: FontWeight.w500),
+                ),
+              ),
+              IconButton(onPressed: () {}, icon: const Icon(Icons.close))
+            ],
           ),
           content: SingleChildScrollView(
             child: ListBody(
@@ -148,7 +182,11 @@ class ProfileScreen extends StatelessWidget {
                 CheckboxListTile(
                   title: const Text(
                     'In Publishing And Graphic Design',
-                    style: TextStyle(fontWeight: FontWeight.w400, fontSize: 12),
+                    style: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 12,
+                      fontFamily: "golo",
+                    ),
                   ),
                   value: false, // Update state as needed
                   onChanged: (bool? value) {
@@ -158,7 +196,11 @@ class ProfileScreen extends StatelessWidget {
                 CheckboxListTile(
                   title: const Text(
                     'In Publishing And Graphic Design',
-                    style: TextStyle(fontWeight: FontWeight.w400, fontSize: 12),
+                    style: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 12,
+                      fontFamily: "golo",
+                    ),
                   ),
                   value: false, // Update state as needed
                   onChanged: (bool? value) {
@@ -168,7 +210,11 @@ class ProfileScreen extends StatelessWidget {
                 CheckboxListTile(
                   title: const Text(
                     'In Publishing And Graphic Design',
-                    style: TextStyle(fontWeight: FontWeight.w400, fontSize: 12),
+                    style: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 12,
+                      fontFamily: "golo",
+                    ),
                   ),
                   value: false, // Update state as needed
                   onChanged: (bool? value) {
@@ -178,7 +224,11 @@ class ProfileScreen extends StatelessWidget {
                 CheckboxListTile(
                   title: const Text(
                     'In Publishing And Graphic Design',
-                    style: TextStyle(fontWeight: FontWeight.w400, fontSize: 12),
+                    style: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 12,
+                      fontFamily: "golo",
+                    ),
                   ),
                   value: false, // Update state as needed
                   onChanged: (bool? value) {
@@ -201,7 +251,13 @@ class ProfileScreen extends StatelessWidget {
                     backgroundColor: kPrimaryColor,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8))),
-                child: Text('Submit', style: TextStyle(color: Colors.white)),
+                child: const Text(
+                  'Submit',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontFamily: "golo",
+                  ),
+                ),
               ),
             ),
           ],
@@ -218,33 +274,48 @@ class ProfileScreen extends StatelessWidget {
     required Color iconColor,
     required VoidCallback onTap,
   }) {
-    return ListTile(
-      leading: Container(
-        padding: const EdgeInsets.all(8),
-        decoration: BoxDecoration(
-          color: iconColor.withOpacity(0.1),
-          borderRadius: BorderRadius.circular(8),
-        ),
-        child: Image.asset(
-          image,
-        ),
+    return Padding(
+      padding: const EdgeInsets.only(left: 10, right: 10),
+      child: Column(
+        children: [
+          ListTile(
+            leading: Container(
+              padding: const EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Image.asset(
+                image,
+              ),
+            ),
+            title: Text(
+              title,
+              style: const TextStyle(
+                fontWeight: FontWeight.w500,
+                fontSize: 14,
+                fontFamily: "golo",
+              ),
+            ),
+            trailing: const Icon(
+              Icons.arrow_forward_ios,
+              size: 16,
+              color: kPrimaryColor,
+            ),
+            onTap: onTap,
+          ),
+          const Divider(
+            thickness: 0.1,
+            color: kPrimaryColor,
+          )
+        ],
       ),
-      title: Text(
-        title,
-        style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 14),
-      ),
-      trailing: const Icon(
-        Icons.arrow_forward_ios,
-        size: 16,
-        color: kPrimaryColor,
-      ),
-      onTap: onTap,
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: kSecondaryColor,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -252,39 +323,47 @@ class ProfileScreen extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              Container(
-                padding: const EdgeInsets.all(16),
-                child: Row(
-                  children: [
-                    const CircleAvatar(
-                      radius: 30,
-                      backgroundImage: AssetImage('assets/profile_image.jpg'),
-                      // You can use NetworkImage if loading from URL
-                    ),
-                    const SizedBox(width: 16),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text(
-                          'Rajaha XXXXX',
-                          style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: kPrimaryColor),
-                        ),
-                        Text(
-                          '+91 XXXXX XXXXX',
-                          style: TextStyle(
-                            color: Colors.grey[600],
-                            fontSize: 14,
+              Padding(
+                padding: const EdgeInsets.only(left: 10, right: 10),
+                child: Container(
+                  decoration: const BoxDecoration(color: Colors.white),
+                  padding: const EdgeInsets.all(16),
+                  child: Row(
+                    children: [
+                      const CircleAvatar(
+                        radius: 30,
+                        backgroundImage: AssetImage('assets/profile_image.jpg'),
+                        // You can use NetworkImage if loading from URL
+                      ),
+                      const SizedBox(width: 16),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            'Rajaha XXXXX',
+                            style: TextStyle(
+                                fontFamily: "golo",
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: kPrimaryColor),
                           ),
-                        ),
-                      ],
-                    ),
-                  ],
+                          Text(
+                            '+91 XXXXX XXXXX',
+                            style: TextStyle(
+                              fontFamily: "golo",
+                              color: Colors.grey[600],
+                              fontSize: 14,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
-              const Divider(),
+              const SizedBox(
+                height: 10,
+              ),
               _buildMenuItem(
                 title: 'Add Bio Data',
                 image: "assets/addfile.png",
@@ -335,7 +414,7 @@ class ProfileScreen extends StatelessWidget {
               ),
               _buildMenuItem(
                 title: 'Delete Account',
-                image: 'assets/logout.png',
+                image: 'assets/trash.png',
                 iconColor: Colors.red,
                 onTap: () {
                   _showDeleteAccountDialog(context);

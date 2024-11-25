@@ -10,16 +10,24 @@ class ProfileIncompleteScreen extends StatelessWidget {
         backgroundColor: Colors.red[50],
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          icon: const Icon(Icons.arrow_back_ios, color: kPrimaryColor),
           onPressed: () => Navigator.pop(context),
         ),
         actions: [
-          TextButton(
-            onPressed: () {},
-            child: const Text(
-              'Skip Now',
-              style: TextStyle(color: Colors.black),
-            ),
+          Padding(
+            padding: const EdgeInsets.only(right: 10),
+            child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8))),
+                child: const Text(
+                  'Skip Now',
+                  style: TextStyle(
+                    color: Colors.grey,
+                  ),
+                )),
           ),
         ],
       ),

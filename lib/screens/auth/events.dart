@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/constants.dart';
 import 'package:my_app/screens/auth/eventdetails.dart';
+import 'package:my_app/screens/auth/newsscrereen.dart';
 
 class EventsScreen extends StatelessWidget {
   final List<Map<String, dynamic>> events = [
@@ -88,21 +89,33 @@ class EventsScreen extends StatelessWidget {
                     'Upcoming Events',
                     style: TextStyle(
                       fontSize: 18,
+                      fontFamily: "golo",
                       color: kPrimaryColor,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  TextButton(
-                    onPressed: () {},
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => NewsScreen()));
+                    },
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: kSecondaryColor,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10))),
                     child: const Text(
                       'View All',
                       style: TextStyle(
+                        fontFamily: "golo",
                         color: kPrimaryColor,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
                   ),
                 ],
+              ),
+              const SizedBox(
+                height: 10,
               ),
               SizedBox(
                 height: 220,
@@ -148,6 +161,7 @@ class EventsScreen extends StatelessWidget {
                                       event['title'],
                                       maxLines: null,
                                       style: const TextStyle(
+                                          fontFamily: "golo",
                                           fontSize: 16,
                                           fontWeight: FontWeight.w600,
                                           color: kPrimaryColor),
@@ -234,6 +248,7 @@ class EventsScreen extends StatelessWidget {
                                       Text(
                                         event['location'],
                                         style: TextStyle(
+                                          fontFamily: "golo",
                                           color: Colors.grey[600],
                                           fontSize: 14,
                                         ),
@@ -250,6 +265,7 @@ class EventsScreen extends StatelessWidget {
                                     Text(
                                       event['date'],
                                       style: TextStyle(
+                                        fontFamily: "golo",
                                         color: Colors.grey[600],
                                         fontSize: 14,
                                       ),

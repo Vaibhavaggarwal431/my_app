@@ -8,14 +8,23 @@ class FamilyDetails2Screen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: kSecondaryColor,
+        automaticallyImplyLeading: false,
         elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: kPrimaryColor),
-          onPressed: () => Navigator.pop(context),
-        ),
-        title: const Text(
-          'Family Details',
-          style: TextStyle(color: kPrimaryColor, fontWeight: FontWeight.w500),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            IconButton(
+              icon: const Icon(Icons.arrow_back_ios, color: kPrimaryColor),
+              onPressed: () => Navigator.pop(context),
+            ),
+            const Text(
+              'Family Details',
+              style: TextStyle(
+                  color: kPrimaryColor,
+                  fontWeight: FontWeight.w500,
+                  fontFamily: "golo"),
+            ),
+          ],
         ),
       ),
       body: SingleChildScrollView(
@@ -45,6 +54,7 @@ class FamilyDetails2Screen extends StatelessWidget {
                             'Total members added',
                             style: TextStyle(
                               fontSize: 16,
+                              fontFamily: "golo",
                               fontWeight: FontWeight.w400,
                               color: Colors.black,
                             ),
@@ -56,6 +66,7 @@ class FamilyDetails2Screen extends StatelessWidget {
                             '3',
                             style: TextStyle(
                               fontSize: 16,
+                              fontFamily: "golo",
                               fontWeight: FontWeight.bold,
                               color: kPrimaryColor,
                             ),
@@ -81,6 +92,7 @@ class FamilyDetails2Screen extends StatelessWidget {
                   const Text(
                     'Add members Details',
                     style: TextStyle(
+                      fontFamily: "golo",
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                       color: kPrimaryColor,
@@ -129,24 +141,15 @@ class FamilyDetails2Screen extends StatelessWidget {
                   const SizedBox(height: 16),
                   const Text(
                     'Add Profile Image',
-                    style: TextStyle(color: kPrimaryColor),
+                    style: TextStyle(color: kPrimaryColor, fontFamily: "golo"),
                   ),
                   const SizedBox(height: 8),
-                  Container(
-                    width: 100,
+                  Image.asset(
+                    "assets/dottedcamera.png",
                     height: 100,
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: kPrimaryColor,
-                      ),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: IconButton(
-                      icon: const Icon(Icons.add, color: kPrimaryColor),
-                      onPressed: () {},
-                    ),
+                    width: 100,
+                    fit: BoxFit.fill,
                   ),
-
                   // Buttons
                   const SizedBox(height: 24),
                   Row(
@@ -163,7 +166,8 @@ class FamilyDetails2Screen extends StatelessWidget {
                           ),
                           child: const Text(
                             'Add Member',
-                            style: TextStyle(color: kPrimaryColor),
+                            style: TextStyle(
+                                color: kPrimaryColor, fontFamily: "golo"),
                           ),
                         ),
                       ),
@@ -180,7 +184,8 @@ class FamilyDetails2Screen extends StatelessWidget {
                           ),
                           child: const Text(
                             'Submit',
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(
+                                color: Colors.white, fontFamily: "golo"),
                           ),
                         ),
                       ),
@@ -204,9 +209,9 @@ class FamilyDetails2Screen extends StatelessWidget {
           Text(
             label,
             style: const TextStyle(
-              color: kPrimaryColor,
-              fontWeight: FontWeight.w500,
-            ),
+                color: kPrimaryColor,
+                fontWeight: FontWeight.w500,
+                fontFamily: "golo"),
           ),
           const SizedBox(height: 8),
           TextField(
@@ -240,6 +245,7 @@ class FamilyDetails2Screen extends StatelessWidget {
             label,
             style: const TextStyle(
               color: kPrimaryColor,
+              fontFamily: "golo",
               fontWeight: FontWeight.w500,
             ),
           ),

@@ -9,17 +9,21 @@ class EventDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[50],
       appBar: AppBar(
-        backgroundColor: Colors.red[50],
+        automaticallyImplyLeading: false,
+        backgroundColor: kSecondaryColor,
         elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: kPrimaryColor),
-          onPressed: () => Navigator.pop(context),
-        ),
-        title: const Text(
-          'Events Details',
-          style: TextStyle(color: kPrimaryColor, fontSize: 16),
+        title: Row(
+          children: [
+            IconButton(
+              icon: const Icon(Icons.arrow_back_ios, color: kPrimaryColor),
+              onPressed: () => Navigator.pop(context),
+            ),
+            const Text(
+              'Events Details',
+              style: TextStyle(color: kPrimaryColor, fontSize: 16),
+            ),
+          ],
         ),
       ),
       body: SingleChildScrollView(
@@ -32,7 +36,7 @@ class EventDetailsScreen extends StatelessWidget {
               height: 200,
               decoration: const BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('image'),
+                  image: AssetImage('assets/temple.png'),
                   fit: BoxFit.cover,
                 ),
               ),

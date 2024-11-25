@@ -8,14 +8,23 @@ class Termsandcondition extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: kSecondaryColor,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios, color: kPrimaryColor),
-          onPressed: () => Navigator.pop(context),
-        ),
-        title: const Text(
-          'Terms And Conditions',
-          style: TextStyle(color: kPrimaryColor, fontWeight: FontWeight.w500),
+        title: Row(
+          children: [
+            IconButton(
+              icon: const Icon(Icons.arrow_back_ios, color: kPrimaryColor),
+              onPressed: () => Navigator.pop(context),
+            ),
+            const Text(
+              'Terms And Conditions',
+              style: TextStyle(
+                color: kPrimaryColor,
+                fontWeight: FontWeight.w500,
+                fontFamily: "golo",
+              ),
+            ),
+          ],
         ),
         elevation: 0,
       ),
@@ -55,6 +64,7 @@ Lorem Ipsum Comes From Sections 1.10.32 And 1.10.33 Of "De Finibus Bonorum Et Ma
             fontSize: 18,
             fontWeight: FontWeight.bold,
             color: Colors.black,
+            fontFamily: "golo",
           ),
         ),
         const SizedBox(height: 8),
@@ -63,6 +73,7 @@ Lorem Ipsum Comes From Sections 1.10.32 And 1.10.33 Of "De Finibus Bonorum Et Ma
           style: const TextStyle(
             fontSize: 14,
             color: Colors.black87,
+            fontFamily: "golo",
             height: 1.5,
           ),
         ),

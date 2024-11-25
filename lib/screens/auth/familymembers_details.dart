@@ -8,285 +8,283 @@ class FamilyMembersDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[50],
-      appBar: AppBar(
-        backgroundColor: Colors.red[50],
-        elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: kPrimaryColor),
-          onPressed: () => Navigator.pop(context),
-        ),
-        title: const Text(
-          'Family Members Details',
-          style: TextStyle(color: kPrimaryColor, fontWeight: FontWeight.w500),
-        ),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // Profile Section
-            Container(
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [
-                    Color(0xFFFFFFFF),
-                    Color(0xFFFFF5E4),
-                  ],
-                ),
+        backgroundColor: Colors.grey[50],
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          backgroundColor: kSecondaryColor,
+          title: Row(
+            children: [
+              IconButton(
+                icon: const Icon(Icons.arrow_back_ios),
+                onPressed: () => Navigator.pop(context),
+                color: kPrimaryColor,
               ),
-              padding: const EdgeInsets.all(16),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const CircleAvatar(
-                        radius: 35,
-                        backgroundImage:
-                            AssetImage('assets/images/Layer_1.png'),
-                      ),
-                      const Spacer(),
-                      Image.asset(
-                        "assets/images/Layer_1.png",
-                        height: 60,
-                        width: 100,
-                        fit: BoxFit.fill,
-                      )
-                    ],
-                  ),
-
-                  const SizedBox(height: 24),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(
-                        'Rahul Jain (Son)',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      const SizedBox(height: 8),
-                      Row(
-                        children: [
-                          const Icon(Icons.phone,
-                              size: 16, color: Colors.green),
-                          const SizedBox(width: 8),
-                          Text(
-                            '+91 8947X XXXXX',
-                            style: TextStyle(
-                              color: Colors.grey[600],
-                              fontSize: 14,
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 4),
-                      Row(
-                        children: [
-                          const Icon(Icons.location_on,
-                              size: 16, color: Colors.red),
-                          const SizedBox(width: 8),
-                          Text(
-                            'Jaipur, Rajasthan, India',
-                            style: TextStyle(
-                              color: Colors.grey[600],
-                              fontSize: 14,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-
-                  // Status Row
+              const Text(
+                'Family Members Details',
+                style: TextStyle(
+                    color: kPrimaryColor,
+                    fontFamily: "golo",
+                    fontWeight: FontWeight.w500),
+              ),
+            ],
+          ),
+        ),
+        body: SingleChildScrollView(
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          // Profile Section
+          Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Color(0xFFFFFFFF),
+                  Color(0xFFFFF5E4),
                 ],
               ),
             ),
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const CircleAvatar(
+                      radius: 35,
+                      backgroundImage: AssetImage('assets/images/Layer_1.png'),
+                    ),
+                    const Spacer(),
+                    Image.asset(
+                      "assets/images/Layer_1.png",
+                      height: 60,
+                      width: 100,
+                      fit: BoxFit.fill,
+                    )
+                  ],
+                ),
 
-            const SizedBox(height: 16),
-
-            // Education & Professional Details
-            Container(
-              color: Colors.white,
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20, right: 20),
-                    child: Row(
+                const SizedBox(height: 24),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      'Rahul Jain (Son)',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontFamily: "golo",
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    Row(
                       children: [
-                        Expanded(
-                          child: _buildStatusItem(
-                            image: "assets/wedding.png",
-                            title: 'Marital Status',
-                            value: 'Single',
-                            color: Colors.amber,
-                          ),
-                        ),
-                        const SizedBox(width: 16),
-                        Expanded(
-                          child: _buildStatusItem(
-                            image: "assets/caleneder.png",
-                            title: 'Date Of Birth',
-                            value: '12-Nov-2024',
-                            color: Colors.blue,
+                        const Icon(Icons.phone, size: 16, color: Colors.green),
+                        const SizedBox(width: 8),
+                        Text(
+                          '+91 8947X XXXXX',
+                          style: TextStyle(
+                            fontFamily: "golo",
+                            color: Colors.grey[600],
+                            fontSize: 14,
                           ),
                         ),
                       ],
                     ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Container(
-                    decoration: const BoxDecoration(color: Color(0xffddbfac)),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 16, vertical: 12),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const Text(
-                            'Education & Professional Details',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                              color: kPrimaryColor,
-                            ),
+                    const SizedBox(height: 4),
+                    Row(
+                      children: [
+                        const Icon(Icons.location_on,
+                            size: 16, color: kPrimaryColor),
+                        const SizedBox(width: 8),
+                        Text(
+                          'Jaipur, Rajasthan, India',
+                          style: TextStyle(
+                            fontFamily: "golo",
+                            color: Colors.grey[600],
+                            fontSize: 14,
                           ),
-                          Image.asset("assets/certificate.png")
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  _buildDetailItem(
-                    image: "assets/degree.png",
-                    title: 'Education',
-                    value: 'BCA',
-                  ),
-                  const Divider(height: 1),
-                  _buildDetailItem(
-                    image: "assets/degree.png",
-                    title: 'Professional',
-                    value: 'BCA',
-                  ),
-                ],
-              ),
+                  ],
+                ),
+
+                // Status Row
+              ],
             ),
-          ],
-        ),
-      ),
-    );
-  }
+          ),
 
-  Widget _buildStatusItem({
-    required String image,
-    required String title,
-    required String value,
-    required Color color,
-  }) {
-    return Container(
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
-          border: Border.all(color: Colors.grey, width: 1)),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Image.asset(
-                image,
-                height: 60,
-                width: 60,
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const SizedBox(
-                    height: 5,
+          const SizedBox(height: 16),
+
+          // Education & Professional Details
+          Container(
+              color: Colors.white,
+              child: Column(children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 20, right: 20),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: _buildStatusItem(
+                          image: "assets/wedding.png",
+                          title: 'Marital Status',
+                          value: 'Single',
+                          color: Colors.amber,
+                        ),
+                      ),
+                      const SizedBox(width: 16),
+                      Expanded(
+                        child: _buildStatusItem(
+                          image: "assets/caleneder.png",
+                          title: 'Date Of Birth',
+                          value: '12-Nov-2024',
+                          color: Colors.blue,
+                        ),
+                      ),
+                    ],
                   ),
-                  Text(
-                    title,
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                      color: Color.fromARGB(255, 20, 18, 18),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Container(
+                  decoration: const BoxDecoration(color: Color(0xffddbfac)),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 16, vertical: 12),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          'Education & Professional Details',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontFamily: "golo",
+                            fontWeight: FontWeight.bold,
+                            color: kPrimaryColor,
+                          ),
+                        ),
+                        Image.asset("assets/certificate.png")
+                      ],
                     ),
                   ),
-                  const SizedBox(height: 4),
-                  Text(
-                    value,
-                    style: const TextStyle(
-                        fontSize: 14,
-                        color: Colors.black,
-                        fontWeight: FontWeight.w600),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                ListView.builder(
+                    itemCount: 2,
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemBuilder: (context, index) => Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 8),
+                                  child: Image.asset(
+                                    "assets/degree.png",
+                                    height: 40,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                const Padding(
+                                  padding: EdgeInsets.only(top: 10, bottom: 10),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        "Education",
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w400,
+                                          fontFamily: "golo",
+                                          color: Colors.grey,
+                                        ),
+                                      ),
+                                      Text(
+                                        "BCA",
+                                        style: TextStyle(
+                                          fontSize: 14,
+                                          fontFamily: "golo",
+                                          fontWeight: FontWeight.w500,
+                                          color: Colors.black,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const Divider(height: 1),
+                          ],
+                        ))
+              ]))
+        ])));
   }
+}
 
-  Widget _buildDetailItem({
-    required String image,
-    required String title,
-    required String value,
-  }) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
+Widget _buildStatusItem({
+  required String image,
+  required String title,
+  required String value,
+  required Color color,
+}) {
+  return Container(
+    decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(15),
+        border: Border.all(color: Colors.grey, width: 1)),
+    child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.all(2.0),
-              child: Image.asset(
-                image,
-                height: 60,
-                fit: BoxFit.cover,
-              ),
-            ),
-            const SizedBox(
-              width: 10,
+            Image.asset(
+              image,
+              height: 60,
+              width: 60,
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                const SizedBox(
+                  height: 10,
+                ),
                 Text(
                   title,
                   style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xFF8B4513),
+                    fontSize: 12,
+                    fontFamily: "golo",
+                    fontWeight: FontWeight.w400,
+                    color: Colors.grey,
                   ),
                 ),
+                const SizedBox(height: 4),
                 Text(
                   value,
                   style: const TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.black,
-                  ),
+                      fontSize: 14,
+                      fontFamily: "golo",
+                      color: Colors.black,
+                      fontWeight: FontWeight.w600),
                 ),
               ],
             ),
           ],
         ),
       ],
-    );
-  }
+    ),
+  );
 }

@@ -7,15 +7,24 @@ class FamilyDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: kSecondaryColor,
         elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: kPrimaryColor),
-          onPressed: () => Navigator.pop(context),
-        ),
-        title: const Text(
-          'Family Details',
-          style: TextStyle(color: kPrimaryColor, fontWeight: FontWeight.w500),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            IconButton(
+              icon: const Icon(Icons.arrow_back_ios, color: kPrimaryColor),
+              onPressed: () => Navigator.pop(context),
+            ),
+            const Text(
+              'Family Details',
+              style: TextStyle(
+                  color: kPrimaryColor,
+                  fontWeight: FontWeight.w500,
+                  fontFamily: "golo"),
+            ),
+          ],
         ),
       ),
       body: SingleChildScrollView(
@@ -31,6 +40,7 @@ class FamilyDetailsScreen extends StatelessWidget {
                 'Add members Details',
                 style: TextStyle(
                   fontSize: 18,
+                  fontFamily: "golo",
                   fontWeight: FontWeight.bold,
                   color: kPrimaryColor,
                 ),
@@ -83,22 +93,18 @@ class FamilyDetailsScreen extends StatelessWidget {
                     const SizedBox(height: 16),
                     const Text(
                       'Add Profile Image',
-                      style: TextStyle(color: kPrimaryColor),
+                      style: TextStyle(
+                        fontFamily: "golo",
+                        color: kPrimaryColor,
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
                     const SizedBox(height: 8),
-                    Container(
-                      width: 100,
+                    Image.asset(
+                      "assets/dottedcamera.png",
                       height: 100,
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: kPrimaryColor,
-                        ),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: IconButton(
-                        icon: const Icon(Icons.add, color: kPrimaryColor),
-                        onPressed: () {},
-                      ),
+                      width: 100,
+                      fit: BoxFit.fill,
                     ),
 
                     // Buttons
@@ -117,7 +123,8 @@ class FamilyDetailsScreen extends StatelessWidget {
                             ),
                             child: const Text(
                               'Add Member',
-                              style: TextStyle(color: kPrimaryColor),
+                              style: TextStyle(
+                                  color: kPrimaryColor, fontFamily: "golo"),
                             ),
                           ),
                         ),
@@ -138,7 +145,8 @@ class FamilyDetailsScreen extends StatelessWidget {
                             ),
                             child: const Text(
                               'Submit',
-                              style: TextStyle(color: Colors.white),
+                              style: TextStyle(
+                                  color: Colors.white, fontFamily: "golo"),
                             ),
                           ),
                         ),
@@ -163,6 +171,7 @@ class FamilyDetailsScreen extends StatelessWidget {
           Text(
             label,
             style: const TextStyle(
+              fontFamily: "golo",
               color: kPrimaryColor,
               fontWeight: FontWeight.w500,
             ),

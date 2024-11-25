@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/constants.dart';
 import 'package:my_app/screens/auth/account.dart';
 import 'package:my_app/screens/auth/events.dart';
 import 'package:my_app/screens/auth/homescreen.dart';
@@ -26,7 +27,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
     return Scaffold(
       body: _screens[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: Colors.red,
+        selectedItemColor: kPrimaryColor,
         unselectedItemColor: Colors.grey,
         showUnselectedLabels: true,
         currentIndex: _currentIndex,
@@ -49,7 +50,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
             icon: Container(
               padding: const EdgeInsets.all(8),
               decoration: const BoxDecoration(
-                color: Colors.red,
+                color: kPrimaryColor,
                 shape: BoxShape.circle,
               ),
               child: const Icon(Icons.add, color: Colors.white),

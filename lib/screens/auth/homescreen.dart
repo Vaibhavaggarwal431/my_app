@@ -7,25 +7,25 @@ import 'package:my_app/screens/auth/notification.dart';
 class HomeContent extends StatelessWidget {
   final List<Map<String, dynamic>> categories = [
     {
-      'icon': Icons.people_outline,
+      'image': "assets/directory.png",
       'title': 'Directory',
       'color': Colors.orange
     },
     {
-      'icon': Icons.business_center_outlined,
+      'image': "assets/bussiness.png",
       'title': 'Business',
       'color': Colors.blue
     },
-    {'icon': Icons.favorite_border, 'title': 'Matches', 'color': Colors.red},
-    {'icon': Icons.newspaper_outlined, 'title': 'News', 'color': Colors.green},
+    {'image': "assets/marriage.png", 'title': 'Matches', 'color': Colors.red},
+    {'image': "assets/news.png", 'title': 'News', 'color': Colors.green},
     {
-      'icon': Icons.event_available_outlined,
+      'image': "assets/calender2.png",
       'title': 'Events',
       'color': Colors.purple
     },
-    {'icon': Icons.work_outline, 'title': 'Job', 'color': Colors.teal},
+    {'image': "assets/job.png", 'title': 'Job', 'color': Colors.teal},
   ];
-
+  int _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,17 +44,26 @@ class HomeContent extends StatelessWidget {
           children: [
             const Text(
               'Rajesh Jain',
-              style: TextStyle(color: Colors.black, fontSize: 16),
+              style: TextStyle(
+                  color: kPrimaryColor,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 12,
+                  fontFamily: "golo"),
             ),
             Text(
               'Jaipur, Rajasthan',
-              style: TextStyle(color: Colors.grey[600], fontSize: 12),
+              style: TextStyle(
+                color: Colors.grey[600],
+                fontSize: 12,
+                fontFamily: "golo",
+              ),
             ),
           ],
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.notifications_outlined, color: kPrimaryColor),
+            icon:
+                const Icon(Icons.notifications_outlined, color: kPrimaryColor),
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) => const NotificationScreen()));
@@ -66,13 +75,20 @@ class HomeContent extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const SizedBox(
+              height: 10,
+            ),
             // Banner Carousel
             CarouselSlider(
               options: CarouselOptions(
-                height: 180,
+                height: 180.0,
                 autoPlay: true,
-                viewportFraction: 0.92,
                 enlargeCenterPage: true,
+                aspectRatio: 10 / 9,
+                autoPlayCurve: Curves.fastOutSlowIn,
+                enableInfiniteScroll: true,
+                autoPlayAnimationDuration: Duration(milliseconds: 800),
+                viewportFraction: 0.8,
               ),
               items: [
                 'assets/images/image (2).png',
@@ -102,6 +118,7 @@ class HomeContent extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 18,
                       color: kPrimaryColor,
+                      fontFamily: "golo",
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -114,11 +131,14 @@ class HomeContent extends StatelessWidget {
                     crossAxisSpacing: 16,
                     children: categories.map((category) {
                       return _buildCategoryCard(
-                        icon: category['icon'],
+                        image: category['image'],
                         title: category['title'],
                         color: category['color'],
                       );
                     }).toList(),
+                  ),
+                  const SizedBox(
+                    height: 20,
                   ),
                   CarouselSlider(
                     options: CarouselOptions(
@@ -128,7 +148,7 @@ class HomeContent extends StatelessWidget {
                       enlargeCenterPage: true,
                     ),
                     items: [
-                      'assets/Mask group.png',
+                      'assets/images/image (2).png',
                       'assets/splashscreen.png',
                     ].map((banner) {
                       return Container(
@@ -153,7 +173,7 @@ class HomeContent extends StatelessWidget {
   }
 
   Widget _buildCategoryCard({
-    required IconData icon,
+    required String image,
     required String title,
     required Color color,
   }) {
@@ -172,13 +192,16 @@ class HomeContent extends StatelessWidget {
               color: color.withOpacity(0.1),
               shape: BoxShape.circle,
             ),
-            child: Icon(icon, color: color),
+            child: Image.asset(
+              image,
+            ),
           ),
           const SizedBox(height: 8),
           Text(
             title,
             style: const TextStyle(
-              fontSize: 14,
+              fontFamily: "golo",
+              fontSize: 16,
               fontWeight: FontWeight.w500,
             ),
           ),

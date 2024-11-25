@@ -8,17 +8,26 @@ class ContactUsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: kSecondaryColor,
-        title: const Text(
-          'Contact Us',
-          style: TextStyle(color: kPrimaryColor, fontWeight: FontWeight.w500),
-        ),
-        leading: IconButton(
-          icon: const Icon(
-            Icons.arrow_back_ios,
-            color: kPrimaryColor,
-          ),
-          onPressed: () => Navigator.pop(context),
+        title: Row(
+          children: [
+            IconButton(
+              icon: const Icon(
+                Icons.arrow_back_ios,
+                color: kPrimaryColor,
+              ),
+              onPressed: () => Navigator.pop(context),
+            ),
+            const Text(
+              'Contact Us',
+              style: TextStyle(
+                color: kPrimaryColor,
+                fontWeight: FontWeight.w500,
+                fontFamily: "golo",
+              ),
+            ),
+          ],
         ),
       ),
       body: Padding(
@@ -87,6 +96,7 @@ class ContactUsScreen extends StatelessWidget {
             Text(
               title,
               style: const TextStyle(
+                fontFamily: "golo",
                 fontSize: 16,
                 fontWeight: FontWeight.w500,
               ),
