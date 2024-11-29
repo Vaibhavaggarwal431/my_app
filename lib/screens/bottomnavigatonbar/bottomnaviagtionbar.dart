@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/constants.dart';
-import 'package:my_app/screens/auth/account.dart';
-import 'package:my_app/screens/auth/events.dart';
-import 'package:my_app/screens/auth/homescreen.dart';
+import 'package:my_app/screens/account/account.dart';
+import 'package:my_app/screens/auth/add.dart';
+import 'package:my_app/screens/homescreen/events.dart';
+import 'package:my_app/screens/homescreen/homescreen.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
   @override
@@ -17,7 +18,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   final List<Widget> _screens = [
     HomeContent(),
     const Center(child: Text('Search')),
-    const Center(child: Text('Add')),
+    BusinessBannerPage(),
     EventsScreen(),
     const ProfileScreen(),
   ];

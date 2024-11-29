@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/constants.dart';
+import 'package:my_app/screens/account/addbiodata3.dart';
 import 'package:my_app/screens/auth/profile_incomplete.dart';
 
-class SignupScreen extends StatefulWidget {
+class Addbiodata2 extends StatefulWidget {
   @override
-  SignupScreenState createState() => SignupScreenState();
+  Addbiodata2State createState() => Addbiodata2State();
 }
 
-class SignupScreenState extends State<SignupScreen> {
+class Addbiodata2State extends State<Addbiodata2> {
   String selectedGender = 'Female';
   String selectedAddressType = 'Permanent Address';
 
@@ -25,11 +26,6 @@ class SignupScreenState extends State<SignupScreen> {
                 icon: const Icon(Icons.arrow_back_ios, color: kPrimaryColor),
                 onPressed: () => Navigator.pop(context),
               ),
-              const Text('Create Account',
-                  style: TextStyle(
-                      color: kPrimaryColor,
-                      fontWeight: FontWeight.w500,
-                      fontFamily: "golo")),
             ],
           )),
       body: SingleChildScrollView(
@@ -38,7 +34,7 @@ class SignupScreenState extends State<SignupScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text('Basic Details',
+              const Text('Personal & Details',
                   style: TextStyle(
                       fontSize: 16,
                       fontFamily: "golo",
@@ -79,7 +75,6 @@ class SignupScreenState extends State<SignupScreen> {
                 'DD/MM/YYYY',
                 Icons.calendar_today,
               ),
-              _buildGenderSelection(),
               Row(
                 children: [
                   Expanded(child: _buildDropdown('Religion')),
@@ -87,21 +82,45 @@ class SignupScreenState extends State<SignupScreen> {
                   Expanded(child: _buildDropdown('Cast')),
                 ],
               ),
-              _buildDropdown('Education'),
-              _buildDropdown('Business & Profession'),
-              _buildTextField(
-                'Business Name',
-                'Enter Business Name',
-                Icons.business,
+              Row(
+                children: [
+                  Expanded(child: _buildDropdown('Height')),
+                  const SizedBox(width: 12),
+                  Expanded(child: _buildDropdown('Weight')),
+                ],
               ),
-              const SizedBox(height: 16),
-              const Text('Address Details',
+              Row(
+                children: [
+                  Expanded(child: _buildDropdown('Marital Status')),
+                  const SizedBox(width: 12),
+                  Expanded(child: _buildDropdown('Mother Tongue')),
+                ],
+              ),
+              const SizedBox(height: 10),
+              const Text('Education & Details',
                   style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                       color: kPrimaryColor)),
-              const SizedBox(height: 16),
-              _buildDropdown('Select Country'),
+              const SizedBox(height: 10),
+              _buildDropdown('Highest degree'),
+              _buildDropdown('Employment Type'),
+              Row(
+                children: [
+                  Expanded(child: _buildDropdown('Occupation')),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  Expanded(child: _buildDropdown('Annual Income')),
+                ],
+              ),
+              const SizedBox(height: 10),
+              const Text('Native Place ',
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: kPrimaryColor)),
+              const SizedBox(height: 10),
               Row(
                 children: [
                   Expanded(child: _buildDropdown('Select State')),
@@ -124,8 +143,8 @@ class SignupScreenState extends State<SignupScreen> {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => ProfileIncompleteScreen()));
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => Addbiodata3()));
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: kPrimaryColor,
@@ -135,11 +154,12 @@ class SignupScreenState extends State<SignupScreen> {
                         horizontal: 50, vertical: 15),
                   ),
                   child: const Text(
-                    'Submit',
+                    'Submit And Next',
                     style: TextStyle(color: Colors.white, fontFamily: "golo"),
                   ),
                 ),
               ),
+            
             ],
           ),
         ),
@@ -231,48 +251,6 @@ class SignupScreenState extends State<SignupScreen> {
     );
   }
 
-  Widget _buildGenderSelection() {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 16.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Text(
-            'Select Gender: ',
-            style: TextStyle(color: kPrimaryColor, fontWeight: FontWeight.w500),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Radio(
-                value: 'Male',
-                activeColor: kPrimaryColor,
-                groupValue: selectedGender,
-                onChanged: (value) {
-                  setState(() {
-                    selectedGender = value.toString();
-                  });
-                },
-              ),
-              const Text('Male'),
-              Radio(
-                value: 'Female',
-                activeColor: kPrimaryColor,
-                groupValue: selectedGender,
-                onChanged: (value) {
-                  setState(() {
-                    selectedGender = value.toString();
-                  });
-                },
-              ),
-              const Text('Female'),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-
   Widget _buildAddressSaveAs() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -303,4 +281,5 @@ class SignupScreenState extends State<SignupScreen> {
       ],
     );
   }
+
 }

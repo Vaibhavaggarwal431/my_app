@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/constants.dart';
-import 'package:my_app/screens/auth/otpscreen.dart';
-import 'package:my_app/screens/auth/signup_screen.dart';
+import 'package:my_app/screens/auth/registatration/otpscreen.dart';
+import 'package:my_app/screens/auth/registatration/signup_screen.dart';
 
 class SignInScreen extends StatelessWidget {
   @override
@@ -19,38 +19,30 @@ class SignInScreen extends StatelessWidget {
           ),
         ),
         child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: Column(
-              children: [
-                // Top Section with Logo and Buddha Images
-                const SizedBox(height: 20),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Image.asset(
-                      'assets/images/pngegg (1) 1.png',
-                      height: 60,
-                    ),
-                    Image.asset(
-                      'assets/images/Layer_1.png',
-                      height: 60,
-                      fit: BoxFit.contain,
-                    ),
-                    Image.asset(
-                      'assets/images/pngegg (1) 1.png',
-                      height: 60,
-                      fit: BoxFit.contain,
-                    ),
-                  ],
-                ),
+          child: Column(
+            children: [
+              // Top Section with Logo and Buddha Images
 
-                // Welcome Text Section
-                const SizedBox(height: 48),
-                Card(
-                  elevation: 6, // Adjust elevation for shadow effect
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20), // Rounded corners
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: Image.asset(
+                      'assets/top.png',
+                      width: double.infinity,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ],
+              ),
+
+              // Welcome Text Section
+
+              Expanded(
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10), // Rounded corners
                   ),
                   child: Padding(
                     padding: const EdgeInsets.only(left: 12, right: 12),
@@ -112,7 +104,7 @@ class SignInScreen extends StatelessWidget {
                         ),
 
                         // Login Button
-                        const SizedBox(height: 32),
+                        const SizedBox(height: 50),
                         SizedBox(
                           width: double.infinity,
                           child: ElevatedButton(
@@ -138,9 +130,11 @@ class SignInScreen extends StatelessWidget {
                             ),
                           ),
                         ),
+                        const SizedBox(height: 57),
 
+                        const Divider(thickness: 1),
                         // Create Account Link
-                        const SizedBox(height: 32),
+                        const SizedBox(height: 57),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -157,6 +151,7 @@ class SignInScreen extends StatelessWidget {
                                 'Create Account',
                                 style: TextStyle(
                                   color: kPrimaryColor,
+                                  decoration: TextDecoration.underline,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -165,19 +160,18 @@ class SignInScreen extends StatelessWidget {
                         ),
 
                         // Bottom Buddha Image
-                        const SizedBox(height: 20),
+                        const Spacer(),
                         Image.asset(
                           'assets/buddha_outline.png',
                           height: 150,
                           fit: BoxFit.fill,
-                          color: kPrimaryColor,
                         ),
                       ],
                     ),
                   ),
-                )
-              ],
-            ),
+                ),
+              )
+            ],
           ),
         ),
       ),

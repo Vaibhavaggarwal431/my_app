@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:my_app/constants.dart';
-import 'package:my_app/screens/auth/familymembers_details.dart';
+import 'package:my_app/screens/auth/registatration/familymembers_details.dart';
 
 class FamilyMembersScreen extends StatelessWidget {
   @override
@@ -24,6 +24,7 @@ class FamilyMembersScreen extends StatelessWidget {
               'Family Members',
               style: TextStyle(
                   color: kPrimaryColor,
+                  fontSize: 16,
                   fontWeight: FontWeight.w500,
                   fontFamily: "golo"),
             ),
@@ -81,64 +82,68 @@ class FamilyMembersScreen extends StatelessWidget {
       required VoidCallback ontap}) {
     return InkWell(
       onTap: ontap,
-      child: Card(
-        elevation: 0,
-        margin: const EdgeInsets.only(bottom: 12),
-        child: Padding(
-          padding: const EdgeInsets.all(12),
-          child: Row(
-            children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // Updated name display
-                    Text(
-                      name,
-                      style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    if (status.isNotEmpty)
-                      Text(
-                        '$gender, $status',
-                        style: TextStyle(
-                          color: Colors.grey[600],
-                          fontSize: 14,
-                        ),
-                      ),
-                  ],
-                ),
-              ),
-              Column(
+      child: Stack(
+        children: [
+          Card(
+            elevation: 0,
+            margin: const EdgeInsets.only(bottom: 12),
+            child: Padding(
+              padding: const EdgeInsets.all(12),
+              child: Row(
                 children: [
-                  Container(
-                    padding: const EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      color: iconColor.withOpacity(0.1),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: Text(
-                      relation,
-                      style: TextStyle(
-                        color: iconColor,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w500,
-                      ),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        // Updated name display
+                        Text(
+                          name,
+                          style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        if (status.isNotEmpty)
+                          Text(
+                            '$gender, $status',
+                            style: TextStyle(
+                              color: Colors.grey[600],
+                              fontSize: 14,
+                            ),
+                          ),
+                      ],
                     ),
                   ),
-                  const SizedBox(height: 4),
-                  Icon(
-                    icon,
-                    color: iconColor,
-                    size: 20,
+                  Column(
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          color: iconColor.withOpacity(0.1),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Text(
+                          relation,
+                          style: TextStyle(
+                            color: iconColor,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 4),
+                      Icon(
+                        icon,
+                        color: iconColor,
+                        size: 20,
+                      ),
+                    ],
                   ),
                 ],
               ),
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }

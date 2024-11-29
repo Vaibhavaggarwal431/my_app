@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/constants.dart';
-import 'package:my_app/screens/auth/newsdetails.dart';
+import 'package:my_app/screens/homescreen/newsdetails.dart';
 
 class NewsScreen extends StatelessWidget {
   final List<Map<String, String>> newsItems = [
@@ -56,6 +56,7 @@ class NewsScreen extends StatelessWidget {
           ],
         ),
       ),
+     
       body: ListView.builder(
         itemCount: newsItems.length + 1, // +1 for the latest news card
         itemBuilder: (context, index) {

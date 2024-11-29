@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/constants.dart';
-import 'package:my_app/screens/auth/familylist.dart';
+import 'package:my_app/screens/auth/registatration/familylist.dart';
 
 class FamilyDetails2Screen extends StatelessWidget {
   @override
@@ -20,6 +20,7 @@ class FamilyDetails2Screen extends StatelessWidget {
             const Text(
               'Family Details',
               style: TextStyle(
+                  fontSize: 16,
                   color: kPrimaryColor,
                   fontWeight: FontWeight.w500,
                   fontFamily: "golo"),
@@ -53,10 +54,10 @@ class FamilyDetails2Screen extends StatelessWidget {
                           Text(
                             'Total members added',
                             style: TextStyle(
-                              fontSize: 16,
+                              fontSize: 12,
                               fontFamily: "golo",
                               fontWeight: FontWeight.w400,
-                              color: Colors.black,
+                              color: grey1,
                             ),
                           ),
                           SizedBox(
@@ -67,7 +68,7 @@ class FamilyDetails2Screen extends StatelessWidget {
                             style: TextStyle(
                               fontSize: 16,
                               fontFamily: "golo",
-                              fontWeight: FontWeight.bold,
+                              fontWeight: FontWeight.w500,
                               color: kPrimaryColor,
                             ),
                           ),
@@ -76,9 +77,9 @@ class FamilyDetails2Screen extends StatelessWidget {
                     ),
                     const Spacer(),
                     const Icon(
-                      Icons.arrow_forward_ios_outlined,
-                      color: Colors.black,
-                      size: 12,
+                      Icons.arrow_right,
+                      color: kPrimaryColor,
+                      size: 22,
                     )
                   ],
                 ),
@@ -86,7 +87,7 @@ class FamilyDetails2Screen extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(height: 10),
+                  const SizedBox(height: 17),
 
                   // Profile Icon
                   const Text(
@@ -146,28 +147,27 @@ class FamilyDetails2Screen extends StatelessWidget {
                   const SizedBox(height: 8),
                   Image.asset(
                     "assets/dottedcamera.png",
-                    height: 100,
-                    width: 100,
+                    height: 78,
+                    width: 78,
                     fit: BoxFit.fill,
                   ),
                   // Buttons
-                  const SizedBox(height: 24),
+                  const SizedBox(height: 91),
                   Row(
                     children: [
                       Expanded(
-                        child: OutlinedButton(
+                        child: ElevatedButton(
                           onPressed: () {},
-                          style: OutlinedButton.styleFrom(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: buttongreycolor,
                             padding: const EdgeInsets.symmetric(vertical: 15),
-                            side: const BorderSide(color: kPrimaryColor),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8),
                             ),
                           ),
                           child: const Text(
                             'Add Member',
-                            style: TextStyle(
-                                color: kPrimaryColor, fontFamily: "golo"),
+                            style: TextStyle(color: grey1, fontFamily: "golo"),
                           ),
                         ),
                       ),
@@ -176,7 +176,7 @@ class FamilyDetails2Screen extends StatelessWidget {
                         child: ElevatedButton(
                           onPressed: () {},
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: kPrimaryColor,
+                            backgroundColor: buttoncolor,
                             padding: const EdgeInsets.symmetric(vertical: 15),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8),
@@ -209,14 +209,22 @@ class FamilyDetails2Screen extends StatelessWidget {
           Text(
             label,
             style: const TextStyle(
-                color: kPrimaryColor,
-                fontWeight: FontWeight.w500,
-                fontFamily: "golo"),
+              fontFamily: "golo",
+              fontSize: 12,
+              color: kPrimaryColor,
+              fontWeight: FontWeight.w500,
+            ),
           ),
           const SizedBox(height: 8),
           TextField(
             decoration: InputDecoration(
               hintText: hint,
+              hintStyle: const TextStyle(
+                fontFamily: "golo",
+                fontSize: 12,
+                color: grey1,
+                fontWeight: FontWeight.w400,
+              ),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
               ),
@@ -244,15 +252,22 @@ class FamilyDetails2Screen extends StatelessWidget {
           Text(
             label,
             style: const TextStyle(
-              color: kPrimaryColor,
               fontFamily: "golo",
+              fontSize: 12,
+              color: kPrimaryColor,
               fontWeight: FontWeight.w500,
             ),
           ),
           const SizedBox(height: 8),
           DropdownButtonFormField<String>(
             decoration: InputDecoration(
-              hintText: hint,
+              labelText: hint,
+              labelStyle: const TextStyle(
+                fontFamily: "golo",
+                fontSize: 12,
+                color: grey1,
+                fontWeight: FontWeight.w400,
+              ),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
               ),

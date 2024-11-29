@@ -51,10 +51,10 @@ class EventDetailsScreen extends StatelessWidget {
                   const Text(
                     'title',
                     style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: kPrimaryColor,
-                    ),
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: kPrimaryColor,
+                        fontFamily: "golo"),
                   ),
                   const SizedBox(height: 12),
 
@@ -67,9 +67,9 @@ class EventDetailsScreen extends StatelessWidget {
                       Text(
                         'location',
                         style: TextStyle(
-                          color: Colors.grey[600],
-                          fontSize: 14,
-                        ),
+                            color: Colors.grey[600],
+                            fontSize: 14,
+                            fontFamily: "golo"),
                       ),
                     ],
                   ),
@@ -106,6 +106,7 @@ class EventDetailsScreen extends StatelessWidget {
                         'organizer',
                         style: TextStyle(
                           color: Colors.grey[600],
+                          fontFamily: "golo",
                           fontSize: 14,
                         ),
                       ),
@@ -127,10 +128,10 @@ class EventDetailsScreen extends StatelessWidget {
                   Text(
                     'Contrary To Popular Belief, Lorem Ipsum Is Not Simply Random Text. It Has Roots In A Piece Of Classical Latin Literature From 45 BC, Making It Over 2000 Years Old. Richard McClintock, A Latin Professor At Hampden-Sydney College In Virginia, Looked Up One Of The More Obscure Latin Words, Consectetur From A Lorem Ipsum Passage, And Going Through The Cites Of The Word In Classical Literature, Discovered The Undoubtable Source. Lorem Ipsum Comes From Sections 1.10.32 And 1.10.33 Of "De Finibus Bonorum Et Malorum" (The Extremes Of Good And Evil) By Cicero, Written In 45 BC. This Book Is A Treatise On The Theory Of Ethics, Very Popular During The Renaissance. The First Line Of Lorem Ipsum, "Lorem Ipsum Dolor Sit Amet..", Comes From A Line In Section 1.10.32.',
                     style: TextStyle(
-                      color: Colors.grey[600],
-                      fontSize: 14,
-                      height: 1.5,
-                    ),
+                        color: Colors.grey[600],
+                        fontSize: 14,
+                        height: 1.5,
+                        fontFamily: "golo"),
                   ),
                 ],
               ),
@@ -156,6 +157,7 @@ class EventDetailsScreen extends StatelessWidget {
                         style: TextStyle(
                             color: kPrimaryColor,
                             fontSize: 14,
+                            fontFamily: "golo",
                             fontWeight: FontWeight.w600),
                       ),
                       SizedBox(height: 4),
@@ -168,6 +170,7 @@ class EventDetailsScreen extends StatelessWidget {
                         'Bharat Lal',
                         style: TextStyle(
                             color: kPrimaryColor,
+                            fontFamily: "golo",
                             fontSize: 14,
                             fontWeight: FontWeight.w600),
                       ),
@@ -175,6 +178,7 @@ class EventDetailsScreen extends StatelessWidget {
                         '+91 XXXXX XXXXX',
                         style: TextStyle(
                           color: kPrimaryColor,
+                          fontFamily: "golo",
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
                         ),

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/constants.dart';
 
-class Privacypolicy extends StatelessWidget {
-  const Privacypolicy({Key? key}) : super(key: key);
+class AboutUsScreen extends StatelessWidget {
+  const AboutUsScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class Privacypolicy extends StatelessWidget {
               onPressed: () => Navigator.pop(context),
             ),
             const Text(
-              'Privacy Policy',
+              'About Us',
               style: TextStyle(
                 color: kPrimaryColor,
                 fontWeight: FontWeight.w500,
@@ -61,9 +61,9 @@ Lorem Ipsum Comes From Sections 1.10.32 And 1.10.33 Of "De Finibus Bonorum Et Ma
         Text(
           title,
           style: const TextStyle(
-            fontFamily: "golo",
             fontSize: 18,
-            fontWeight: FontWeight.bold,
+            fontFamily: "golo",
+            fontWeight: FontWeight.w500,
             color: Colors.black,
           ),
         ),
@@ -71,9 +71,10 @@ Lorem Ipsum Comes From Sections 1.10.32 And 1.10.33 Of "De Finibus Bonorum Et Ma
         Text(
           content,
           style: const TextStyle(
-            fontFamily: "golo",
             fontSize: 14,
+            fontFamily: "golo",
             color: Colors.black87,
+            fontWeight: FontWeight.w400,
             height: 1.5,
           ),
         ),

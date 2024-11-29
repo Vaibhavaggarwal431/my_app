@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/constants.dart';
-import 'package:my_app/screens/auth/eventdetails.dart';
-import 'package:my_app/screens/auth/newsscrereen.dart';
+import 'package:my_app/screens/homescreen/eventdetails.dart';
+import 'package:my_app/screens/homescreen/newsscrereen.dart';
+import 'package:my_app/screens/notification/notification.dart';
 
 class EventsScreen extends StatelessWidget {
   final List<Map<String, dynamic>> events = [
@@ -49,7 +50,7 @@ class EventsScreen extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: CircleAvatar(
             backgroundColor: Colors.red[100],
-            child: const Icon(Icons.person, color: Colors.red),
+            child: const Icon(Icons.person, color: kPrimaryColor),
           ),
         ),
         title: const Column(
@@ -57,11 +58,30 @@ class EventsScreen extends StatelessWidget {
           children: [
             Text(
               'Rajesh Jain',
-              style: TextStyle(color: kPrimaryColor, fontSize: 16),
+              style: TextStyle(
+                  color: kPrimaryColor,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 16,
+                  fontFamily: "golo"),
             ),
-            Text(
-              'Jaipur, Rajasthan',
-              style: TextStyle(color: Colors.black, fontSize: 12),
+            SizedBox(
+              height: 2,
+            ),
+            Row(
+              children: [
+                Text(
+                  'Jaipur, Rajasthan',
+                  style: TextStyle(
+                    color: grey1,
+                    fontSize: 12,
+                    fontFamily: "golo",
+                  ),
+                ),
+                Icon(
+                  Icons.arrow_drop_down_sharp,
+                  color: kPrimaryColor,
+                )
+              ],
             ),
           ],
         ),
@@ -71,7 +91,7 @@ class EventsScreen extends StatelessWidget {
                 const Icon(Icons.notifications_outlined, color: kPrimaryColor),
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => const EventDetailsScreen()));
+                  builder: (context) => const NotificationScreen()));
             },
           ),
         ],
@@ -95,10 +115,7 @@ class EventsScreen extends StatelessWidget {
                     ),
                   ),
                   ElevatedButton(
-                    onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => NewsScreen()));
-                    },
+                    onPressed: () {},
                     style: ElevatedButton.styleFrom(
                         backgroundColor: kSecondaryColor,
                         shape: RoundedRectangleBorder(

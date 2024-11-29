@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/constants.dart';
-import 'package:my_app/screens/auth/familydetails.dart';
+import 'package:my_app/screens/auth/registatration/familydetails.dart';
 
 class FamilyDetailsScreen extends StatelessWidget {
   @override
@@ -20,6 +20,7 @@ class FamilyDetailsScreen extends StatelessWidget {
             const Text(
               'Family Details',
               style: TextStyle(
+                  fontSize: 16,
                   color: kPrimaryColor,
                   fontWeight: FontWeight.w500,
                   fontFamily: "golo"),
@@ -39,9 +40,9 @@ class FamilyDetailsScreen extends StatelessWidget {
               const Text(
                 'Add members Details',
                 style: TextStyle(
-                  fontSize: 18,
+                  fontSize: 20,
                   fontFamily: "golo",
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w500,
                   color: kPrimaryColor,
                 ),
               ),
@@ -59,7 +60,7 @@ class FamilyDetailsScreen extends StatelessWidget {
                       'Enter Mobile Number',
                       suffixIcon: Icons.phone_android,
                     ),
-                    _buildDropdown('Relationship', 'Select Relationship'),
+                    _buildDropdown('Relationship', ['Option1', 'Option2']),
                     Row(
                       children: [
                         Expanded(
@@ -84,10 +85,10 @@ class FamilyDetailsScreen extends StatelessWidget {
                       'DD/MM/YYYY',
                       suffixIcon: Icons.calendar_today,
                     ),
-                    _buildDropdown('Marital Status', 'Select Marital Status'),
-                    _buildDropdown('Education', 'Select Education'),
-                    _buildDropdown('Business & Profession',
-                        'Select Business & Profession'),
+                    _buildDropdown('Marital Status', ['Option1', 'Option2']),
+                    _buildDropdown('Education', ['Option1', 'Option2']),
+                    _buildDropdown(
+                        'Business & Profession', ['Option1', 'Option2']),
 
                     // Profile Image Upload
                     const SizedBox(height: 16),
@@ -102,8 +103,8 @@ class FamilyDetailsScreen extends StatelessWidget {
                     const SizedBox(height: 8),
                     Image.asset(
                       "assets/dottedcamera.png",
-                      height: 100,
-                      width: 100,
+                      height: 78,
+                      width: 78,
                       fit: BoxFit.fill,
                     ),
 
@@ -112,19 +113,19 @@ class FamilyDetailsScreen extends StatelessWidget {
                     Row(
                       children: [
                         Expanded(
-                          child: OutlinedButton(
+                          child: ElevatedButton(
                             onPressed: () {},
-                            style: OutlinedButton.styleFrom(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: buttongreycolor,
                               padding: const EdgeInsets.symmetric(vertical: 15),
-                              side: const BorderSide(color: kPrimaryColor),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(8),
                               ),
                             ),
                             child: const Text(
                               'Add Member',
-                              style: TextStyle(
-                                  color: kPrimaryColor, fontFamily: "golo"),
+                              style:
+                                  TextStyle(color: grey1, fontFamily: "golo"),
                             ),
                           ),
                         ),
@@ -137,7 +138,7 @@ class FamilyDetailsScreen extends StatelessWidget {
                                       FamilyDetails2Screen()));
                             },
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: kPrimaryColor,
+                              backgroundColor: buttoncolor,
                               padding: const EdgeInsets.symmetric(vertical: 15),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(8),
@@ -172,6 +173,7 @@ class FamilyDetailsScreen extends StatelessWidget {
             label,
             style: const TextStyle(
               fontFamily: "golo",
+              fontSize: 12,
               color: kPrimaryColor,
               fontWeight: FontWeight.w500,
             ),
@@ -180,6 +182,12 @@ class FamilyDetailsScreen extends StatelessWidget {
           TextField(
             decoration: InputDecoration(
               hintText: hint,
+              hintStyle: const TextStyle(
+                fontFamily: "golo",
+                fontSize: 12,
+                color: grey1,
+                fontWeight: FontWeight.w400,
+              ),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
               ),
@@ -198,7 +206,7 @@ class FamilyDetailsScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildDropdown(String label, String hint) {
+  Widget _buildDropdown(String label, List<String> items) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 16.0),
       child: Column(
@@ -207,6 +215,8 @@ class FamilyDetailsScreen extends StatelessWidget {
           Text(
             label,
             style: const TextStyle(
+              fontFamily: "golo",
+              fontSize: 12,
               color: kPrimaryColor,
               fontWeight: FontWeight.w500,
             ),
@@ -214,14 +224,25 @@ class FamilyDetailsScreen extends StatelessWidget {
           const SizedBox(height: 8),
           DropdownButtonFormField<String>(
             decoration: InputDecoration(
-              hintText: hint,
+              labelText: label,
+              labelStyle: const TextStyle(
+                fontFamily: "golo",
+                fontSize: 12,
+                color: grey1,
+                fontWeight: FontWeight.w400,
+              ),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
               ),
               contentPadding:
                   const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
             ),
-            items: [],
+            items: items.map((String item) {
+              return DropdownMenuItem<String>(
+                value: item,
+                child: Text(item),
+              );
+            }).toList(),
             onChanged: (value) {},
           ),
         ],

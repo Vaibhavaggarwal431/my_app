@@ -62,7 +62,7 @@ Lorem Ipsum Comes From Sections 1.10.32 And 1.10.33 Of "De Finibus Bonorum Et Ma
           title,
           style: const TextStyle(
             fontSize: 18,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w500,
             color: Colors.black,
             fontFamily: "golo",
           ),
@@ -74,6 +74,7 @@ Lorem Ipsum Comes From Sections 1.10.32 And 1.10.33 Of "De Finibus Bonorum Et Ma
             fontSize: 14,
             color: Colors.black87,
             fontFamily: "golo",
+            fontWeight: FontWeight.w400,
             height: 1.5,
           ),
         ),

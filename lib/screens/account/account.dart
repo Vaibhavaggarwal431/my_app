@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/screens/account/addbiodata.dart';
 import 'package:my_app/constants.dart';
-import 'package:my_app/screens/auth/aboutus.dart';
-import 'package:my_app/screens/auth/contactus.dart';
-import 'package:my_app/screens/auth/privacypolicy.dart';
-import 'package:my_app/screens/auth/termsandcondition.dart';
+import 'package:my_app/screens/account/aboutus.dart';
+import 'package:my_app/screens/account/contactus.dart';
+import 'package:my_app/screens/account/privacypolicy.dart';
+import 'package:my_app/screens/account/termsandcondition.dart';
+import 'package:my_app/screens/auth/signin_screen.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -44,7 +46,8 @@ class ProfileScreen extends StatelessWidget {
                   child: ElevatedButton(
                     onPressed: () {
                       // Handle submit action
-                      Navigator.of(context).pop();
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => SignInScreen()));
                     },
                     style: ElevatedButton.styleFrom(
                         backgroundColor: Color(0xffdadce3),
@@ -368,7 +371,10 @@ class ProfileScreen extends StatelessWidget {
                 title: 'Add Bio Data',
                 image: "assets/addfile.png",
                 iconColor: Colors.blue,
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => AddBioDataScreen()));
+                },
               ),
               _buildMenuItem(
                 title: 'About Us',

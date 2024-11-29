@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_app/constants.dart';
-import 'package:my_app/screens/auth/familymembers.dart';
+import 'package:my_app/screens/auth/registatration/familymembers.dart';
 
 class ProfileIncompleteScreen extends StatelessWidget {
   @override
@@ -35,7 +35,6 @@ class ProfileIncompleteScreen extends StatelessWidget {
         children: [
           // Profile Header
           Container(
-            color: Colors.red[50],
             padding: const EdgeInsets.all(16),
             child: Row(
               children: [
@@ -51,15 +50,15 @@ class ProfileIncompleteScreen extends StatelessWidget {
                     Text(
                       'Rajesh Jain',
                       style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                          color: kPrimaryColor,
+                          fontFamily: "golo"),
                     ),
                     Text(
                       '+91 XXXXX XXXXX',
-                      style: TextStyle(
-                        color: Colors.grey,
-                      ),
+                      style:
+                          TextStyle(color: grey1, fontWeight: FontWeight.w400),
                     ),
                   ],
                 ),
@@ -76,28 +75,51 @@ class ProfileIncompleteScreen extends StatelessWidget {
                 const Text(
                   'Your Profile Incomplete Now',
                   style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
+                      color: kPrimaryColor,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      fontFamily: "golo"),
                 ),
                 const SizedBox(height: 4),
                 const Text(
                   'You\'re Almost There! Complete Your Profile For Better Results.',
                   style: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 12,
-                  ),
+                      color: grey1,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w400,
+                      fontFamily: "golo"),
                 ),
                 const SizedBox(height: 16),
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
-                  child: LinearProgressIndicator(
-                    value: 0.8,
-                    backgroundColor: Colors.grey[200],
-                    valueColor:
-                        const AlwaysStoppedAnimation<Color>(Colors.green),
-                    minHeight: 8,
-                  ),
+                // Custom Slider for profile completion
+                Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Container(
+                      width: double.infinity, // Make the slider full width
+                      height:
+                          100, // Increase the height of the slider for thickness
+                      child: Slider(
+                        value:
+                            0.8, // This value can be dynamic based on profile completion
+                        min: 0,
+                        max: 1,
+                        divisions: 10,
+                        onChanged: (double value) {
+                          // Handle slider value change if needed
+                        },
+                        activeColor: Colors.green,
+                        inactiveColor: Colors.grey[300],
+                        thumbColor: Colors.white, // Color of the thumb
+                      ),
+                    ),
+                    const Text(
+                      '80%', // Display the percentage on top of the slider
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
                 ),
                 const SizedBox(height: 24),
                 _buildProfileItem('Basic Details', true),
@@ -120,7 +142,7 @@ class ProfileIncompleteScreen extends StatelessWidget {
                       builder: (context) => FamilyDetailsScreen()));
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: kPrimaryColor,
+                  backgroundColor: buttoncolor,
                   padding: const EdgeInsets.symmetric(vertical: 15),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8),
